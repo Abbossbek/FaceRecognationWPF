@@ -1,0 +1,80 @@
+﻿<Window x:Class="FaceRecognationWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FaceRecognationWPF"
+        mc:Ignorable="d"
+	Title="MainWindow"
+	Height="450"
+	Width="800">
+	<DockPanel>
+		<Grid
+			DockPanel.Dock="Right"
+			Width="260">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="50" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<TextBlock
+				Text="Persons" />
+			<TextBlock
+				Text="Saved persons"
+				Grid.Column="1" />
+			<ListBox
+				Name="lbPersons"
+				Grid.Row="1">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<StackPanel
+							Margin="5">
+							<Image
+								Source="{Binding Image}"
+								Width="100" />
+							<TextBox
+								Text="{Binding Name}" />
+							<Button
+								Content="Save"
+								Name="btnSavePerson"
+								Click="btnSavePerson_Click" />
+						</StackPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+			<ListBox
+				Name="lbSavedPersons"
+				Grid.Row="1"
+				Grid.Column="1">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<StackPanel
+							Margin="5">
+							<Image
+								Source="{Binding Image}"
+								Width="100" />
+							<TextBlock
+								Text="{Binding Name}" />
+						</StackPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</Grid>
+		<Grid>
+			<Image
+				Name="image"
+				Stretch="Uniform" />
+			<Canvas
+				x:Name="canvas"
+				Width="{Binding ElementName=image, Path=ActualWidth}"
+				Height="{Binding ElementName=image, Path=ActualHeight}"></Canvas>
+		</Grid>
+	</DockPanel>
+</Window>
