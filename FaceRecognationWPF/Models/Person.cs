@@ -7,7 +7,7 @@ using System.Windows.Media.Imaging;
 
 namespace FaceRecognationWPF.Models
 {
-    public class Person : BindableBase
+    public class Person : BindableBase, ICloneable
     {
         private string name;
         private BitmapSource image;
@@ -25,5 +25,10 @@ namespace FaceRecognationWPF.Models
         }
         public float[] Embedding { get; set; }
         public FaceAiSharp.FaceDetectorResult FaceRectangle { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }
