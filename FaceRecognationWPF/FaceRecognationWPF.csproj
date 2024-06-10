@@ -20,5 +20,6 @@
 		<PackageReference Include="FaceAiSharp" Version="0.5.23" />
 		<PackageReference Include="FaceAiSharp.Bundle" Version="0.5.23" />
 		<PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.18.0" />
+		<PackageReference Include="FlashCap" Version="1.10.0" />
 	</ItemGroup>
 </Project>
